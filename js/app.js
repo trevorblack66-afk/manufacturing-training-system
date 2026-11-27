@@ -242,7 +242,7 @@ function setupEvents(){
   document.getElementById("closeMatrixDialog").addEventListener("click",()=>document.getElementById("matrixDialog").close());
   document.getElementById("closeModuleDialog").addEventListener("click",()=>document.getElementById("moduleDialog").close());
 
-  document.getElementById("resetData").addEventListener("click",()=>{if(confirm("Reset all demonstration data to its original fictional values?")){demo=getFreshDemoData();saveDemo();populateSelects();renderAll();showSection("dashboard");}});
+  document.getElementById("resetData").addEventListener("click",()=>{if(confirm("Reset all demonstration data to its original fictional values?")){demo=getFreshDemoData();saveDemo();demo.trainingModules.forEach(m=>localStorage.removeItem(`module-${m.id}`));populateSelects();renderAll();showSection("dashboard");}});
 }
 
 function renderAll(){renderDashboard();renderEmployees();renderMatrix();renderTraining();renderQualifications();renderIdeas();renderGapAnalysis();renderAnalytics();}
