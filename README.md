@@ -2,7 +2,7 @@
 
 A professional, responsive portfolio demonstration for exploring how a manufacturing organization could improve visibility into employee training, qualifications, standardized work, development, and continuous improvement.
 
-> **Portfolio disclaimer:** "This portfolio project uses entirely fictional employees, processes, training requirements, safety information, and manufacturing data. It was independently developed to demonstrate concepts related to manufacturing training, workforce development, continuous improvement, and software development. It does not contain proprietary employer information."
+> **Portfolio disclaimer:** “This portfolio project uses entirely fictional employees, processes, training requirements, safety information, and manufacturing data. It was independently developed to demonstrate concepts related to manufacturing training, workforce development, continuous improvement, and software development. It does not contain proprietary employer information.”
 
 ## Problem explored
 
@@ -21,6 +21,13 @@ Workforce development records are often split across spreadsheets, binders, trai
 - Browser localStorage persistence
 - Reset Demo Data action
 - Responsive desktop and mobile navigation
+- Detailed fictional employee profiles with assignments and activity history
+- Interactive skills matrix with employee/process/status filters and qualification detail dialogs
+- Searchable standardized training library with persistent checklist progress
+- Demo-date-based qualification status calculations and sortable qualification records
+- Dynamic, filterable training-gap findings grouped by Critical, Attention, Opportunity, and Strength
+- Editable continuous-improvement ideas with priority, notes, workflow stages, counts, and deletion
+- Native HTML/CSS/JavaScript analytics with accessible summaries
 
 ## Technologies
 
@@ -80,3 +87,11 @@ This project reinforces the separation of demonstration data from application be
 - Printable skills matrix reports
 - Expanded test coverage
 - Data validation and backend integration as a separate future concept
+
+## Demo reporting date
+
+Qualification expiration calculations use the configurable `DEMO_CURRENT_DATE` value in `js/data.js`. The default is November 27, 2026. This keeps dashboard alerts and gap findings stable instead of changing with each viewer's real-world date.
+
+## Persistence
+
+Editable improvement ideas and training checklist progress are stored in browser `localStorage`. Use **Reset Demo Data** to restore the fictional baseline dataset and module checklist state.
