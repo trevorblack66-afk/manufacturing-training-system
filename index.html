@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fictional Manufacturing Training & Development System portfolio demonstration">
+  <title>Manufacturing Training & Development System</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">MT</span><div><strong>Manufacturing</strong><small>Training & Development</small></div></div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-section="dashboard">Dashboard</button>
+        <button class="nav-item" data-section="employees">Employees</button>
+        <button class="nav-item" data-section="matrix">Skills Matrix</button>
+        <button class="nav-item" data-section="training">Training Center</button>
+        <button class="nav-item" data-section="qualifications">Qualifications</button>
+        <button class="nav-item" data-section="improvements">Continuous Improvement</button>
+        <button class="nav-item" data-section="gaps">Gap Analysis</button>
+        <button class="nav-item" data-section="analytics">Analytics</button>
+      </nav>
+      <button class="reset-button" id="resetData">Reset Demo Data</button>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <div><p class="eyebrow">Fictional Workforce Operations</p><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="demo-badge"><span></span> Demo Environment</div>
+      </header>
+
+      <main id="main-content">
+        <section id="dashboard" class="page-section active" aria-labelledby="pageTitle">
+          <div class="kpi-grid" id="kpiGrid"></div>
+          <div class="dashboard-grid">
+            <article class="panel"><div class="panel-header"><div><p class="eyebrow">Current period</p><h2>Training Progress Overview</h2></div></div><div id="trainingOverview"></div></article>
+            <article class="panel"><div class="panel-header"><div><p class="eyebrow">Next 30 days</p><h2>Qualification Alerts</h2></div></div><div id="qualificationAlerts"></div></article>
+            <article class="panel"><div class="panel-header"><div><p class="eyebrow">Latest updates</p><h2>Recent Training Activity</h2></div></div><div id="recentActivity"></div></article>
+            <article class="panel"><div class="panel-header"><div><p class="eyebrow">Action list</p><h2>Items Needing Attention</h2></div></div><div id="itemsAttention"></div></article>
+          </div>
+        </section>
+
+        <section id="employees" class="page-section">
+          <div class="section-toolbar"><div class="search-field"><label class="sr-only" for="employeeSearch">Search employees</label><input id="employeeSearch" type="search" placeholder="Search employees..."></div><label>Department<select id="employeeDepartment"><option value="">All departments</option><option>Assembly</option><option>Quality</option><option>Packaging</option><option>Maintenance</option></select></label><label>Shift<select id="employeeShift"><option value="">All shifts</option><option>A</option><option>B</option><option>C</option></select></label></div>
+          <div class="employee-grid" id="employeeGrid"></div>
+        </section>
+
+        <section id="matrix" class="page-section">
+          <div class="section-toolbar"><label>Department<select id="matrixDepartment"><option value="">All departments</option><option>Assembly</option><option>Quality</option><option>Packaging</option><option>Maintenance</option></select></label><label>Shift<select id="matrixShift"><option value="">All shifts</option><option>A</option><option>B</option><option>C</option></select></label><label>Skill<select id="matrixSkill"><option value="">All skills</option></select></label><label>Status<select id="matrixStatus"><option value="">All statuses</option><option>Trainer Qualified</option><option>Qualified</option><option>In Training</option><option>Not Started</option><option>Expired</option></select></label></div>
+          <div class="matrix-wrap"><table class="data-table matrix-table" id="skillsMatrix"><thead></thead><tbody></tbody></table></div>
+          <div class="status-legend" id="matrixLegend"></div>
+        </section>
+
+        <section id="training" class="page-section"><div class="module-grid" id="trainingModules"></div></section>
+
+        <section id="qualifications" class="page-section">
+          <div class="section-toolbar"><label>Employee<select id="qualificationEmployee"><option value="">All employees</option></select></label><label>Status<select id="qualificationStatus"><option value="">All statuses</option><option>Current</option><option>Expiring Soon</option><option>Expired</option><option>In Training</option><option>Not Qualified</option></select></label></div>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Employee</th><th>Qualification</th><th>Qualification date</th><th>Renewal date</th><th>Trainer</th><th>Status</th></tr></thead><tbody id="qualificationTable"></tbody></table></div>
+        </section>
+
+        <section id="improvements" class="page-section">
+          <div class="section-toolbar"><button class="primary-button" id="newIdeaButton">+ Submit Improvement Idea</button><label>Status<select id="ideaStatusFilter"><option value="">All statuses</option><option>Submitted</option><option>Under Review</option><option>Trial</option><option>Implemented</option></select></label></div>
+          <div class="idea-grid" id="ideaGrid"></div>
+        </section>
+
+        <section id="gaps" class="page-section"><div class="gap-layout"><article class="panel"><div class="panel-header"><div><p class="eyebrow">Dynamic findings</p><h2>Training Gap Analysis</h2></div></div><div id="gapFindings"></div></article><article class="panel"><div class="panel-header"><h2>Qualification Coverage by Process</h2></div><div id="coverageBars"></div></article></div></section>
+
+        <section id="analytics" class="page-section"><div class="analytics-grid" id="analyticsGrid"></div></section>
+      </main>
+
+      <footer class="disclaimer"><strong>Portfolio disclaimer:</strong> This project uses entirely fictional employees, processes, training requirements, safety information, and manufacturing data. It was independently developed for portfolio demonstration and contains no proprietary employer information.</footer>
+    </div>
+  </div>
+
+  <dialog id="ideaDialog" aria-labelledby="ideaDialogTitle">
+    <form id="ideaForm" method="dialog">
+      <div class="dialog-header"><div><p class="eyebrow">Fictional improvement</p><h2 id="ideaDialogTitle">Submit Improvement Idea</h2></div><button type="button" class="icon-button" id="closeIdeaDialog" aria-label="Close">×</button></div>
+      <div class="form-grid"><label>Title<input name="title" required maxlength="80"></label><label>Category<select name="category" required><option>Safety</option><option>Quality</option><option>Training</option><option>Productivity</option><option>Standardization</option><option>Employee Experience</option></select></label><label class="full">Current Issue<textarea name="currentIssue" required></textarea></label><label class="full">Proposed Improvement<textarea name="proposedImprovement" required></textarea></label><label class="full">Expected Benefit<textarea name="expectedBenefit" required></textarea></label></div>
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="cancelIdea">Cancel</button><button type="submit" class="primary-button">Submit Idea</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="moduleDialog" aria-labelledby="moduleDialogTitle"><div class="dialog-header"><div><p class="eyebrow">Standardized training module</p><h2 id="moduleDialogTitle"></h2></div><button type="button" class="icon-button" id="closeModuleDialog" aria-label="Close">×</button></div><div id="moduleDialogContent"></div></dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
